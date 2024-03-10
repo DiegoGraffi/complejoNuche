@@ -54,7 +54,7 @@ const DeptoView: React.FC<DeptoProps> = ({
 
   return (
     <div className="border border-neutral-300 rounded-xl mt-5 gap-2 w-[100%] h-[100%] flex basis-1 flex-col md:basis-1/2">
-      <h3 className="font-bold rounded-lg p-4">{titulo}</h3>
+      <h3 className="font-bold rounded-lg p-4 text-md text-lg">{titulo}</h3>
       <Separator />
 
       <div className="w-full h-full flex flex-col justify-center items-start p-4 ">

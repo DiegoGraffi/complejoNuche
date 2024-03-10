@@ -202,7 +202,7 @@ export default function Home() {
       </section>
 
       {/** Contacto */}
-      <section id="contacto" className="px-5 p-10 bg-black ">
+      <section id="contacto" className="py-10 bg-black ">
         <div className="container mx-auto">
           <h3 className="text-2xl font-black text-white md:text-4xl">
             Contacto
@@ -255,7 +255,9 @@ export default function Home() {
                   </>
                 )}
               />
-              <Button type="submit">Enviar</Button>
+              <Button type="submit" className="text-sm md:text-md">
+                Enviar
+              </Button>
             </form>
           </Form>
         </div>
