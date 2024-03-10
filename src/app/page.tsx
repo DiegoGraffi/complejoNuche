@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import img01 from "../../public/01.jpg";
+import img01 from "../../public/01comp.jpg";
 import Link from "next/link";
 import tipo1 from "../../public/Imagen D1.png";
 import tipo2 from "../../public/Imagen D2.png";
