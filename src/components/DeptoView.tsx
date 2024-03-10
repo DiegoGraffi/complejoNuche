@@ -58,7 +58,7 @@ const DeptoView: React.FC<DeptoProps> = ({
       <Separator />
 
       <div className="w-full h-full flex flex-col justify-center items-start p-4 ">
-        <ul className="grid grid-cols-2 gap-2">
+        <ul className="grid grid-cols-2 gap-2 w-[100%]">
           <li className="p-2 bg-neutral-100 rounded-md border border-opacity-50">
             {caracteristica1}
           </li>
@@ -84,7 +84,7 @@ const DeptoView: React.FC<DeptoProps> = ({
       <div className="px-14 py-5">
         <Carousel setApi={setApi}>
           <CarouselContent>
-            <CarouselItem className="h-96 relative">
+            <CarouselItem className="h-[600px] relative">
               <Image
                 src={imagen}
                 alt="imagen"
@@ -93,7 +93,7 @@ const DeptoView: React.FC<DeptoProps> = ({
               />
             </CarouselItem>
 
-            <CarouselItem className="h-96 relative">
+            <CarouselItem className="h-[600px] relative">
               <Image
                 src={plano}
                 alt="imagen"

@@ -21,7 +21,7 @@ const options = {
 export default function MyGallery() {
   return (
     <Gallery withDownloadButton options={options}>
-      <div className="grid grid-cols-2 gap-[12px]  mx-auto mt-5">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-[12px]  mx-auto mt-5">
         <div className="relative w-full h-[150px] md:h-[300px]">
           <Item
             original={img01.src}
@@ -44,46 +44,6 @@ export default function MyGallery() {
 
         <div className="relative w-full h-[150px] md:h-[300px]">
           <Item
-            original={img04.src}
-            thumbnail={img04.src}
-            width="4000"
-            height="2250"
-          >
-            {({ ref, open }) => (
-              <Image
-                ref={ref}
-                onClick={open}
-                src={img04.src}
-                fill
-                className="object-cover rounded-md border border-[rgba(0,0,0,.3)]"
-                alt="render2"
-              />
-            )}
-          </Item>
-        </div>
-
-        <div className="relative w-full h-[150px] md:h-[300px]">
-          <Item
-            original={img05.src}
-            thumbnail={img05.src}
-            width="4000"
-            height="2250"
-          >
-            {({ ref, open }) => (
-              <Image
-                ref={ref}
-                onClick={open}
-                src={img05.src}
-                fill
-                className="object-cover rounded-md border border-[rgba(0,0,0,.3)]"
-                alt="render3"
-              />
-            )}
-          </Item>
-        </div>
-
-        <div className="relative w-full h-[150px] md:h-[300px]">
-          <Item
             original={img02.src}
             thumbnail={img02.src}
             width="4000"
@@ -96,7 +56,7 @@ export default function MyGallery() {
                 src={img02.src}
                 fill
                 className="object-cover rounded-md border border-[rgba(0,0,0,.3)]"
-                alt="render4"
+                alt="render2"
               />
             )}
           </Item>
@@ -114,6 +74,46 @@ export default function MyGallery() {
                 ref={ref}
                 onClick={open}
                 src={img03.src}
+                fill
+                className="object-cover rounded-md border border-[rgba(0,0,0,.3)]"
+                alt="render3"
+              />
+            )}
+          </Item>
+        </div>
+
+        <div className="relative w-full h-[150px] md:h-[300px]">
+          <Item
+            original={img04.src}
+            thumbnail={img04.src}
+            width="4000"
+            height="2250"
+          >
+            {({ ref, open }) => (
+              <Image
+                ref={ref}
+                onClick={open}
+                src={img04.src}
+                fill
+                className="object-cover rounded-md border border-[rgba(0,0,0,.3)]"
+                alt="render4"
+              />
+            )}
+          </Item>
+        </div>
+
+        <div className="relative w-full h-[150px] md:h-[300px]">
+          <Item
+            original={img05.src}
+            thumbnail={img05.src}
+            width="4000"
+            height="2250"
+          >
+            {({ ref, open }) => (
+              <Image
+                ref={ref}
+                onClick={open}
+                src={img05.src}
                 fill
                 className="object-cover rounded-md border border-[rgba(0,0,0,.3)]"
                 alt="render5"

@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { LucideChevronDown } from "lucide-react";
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
@@ -50,31 +51,38 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen w-screen">
+    <main className="min-h-screen w-[100%]">
       <section className="relative flex justify-center items-center h-screen">
-        <div className="absolute z-30 flex flex-col justify-center items-center px-5 gap-7">
-          <h1 className="text-white text-4xl font-black text-center uppercase">
-            Complejo Nuche
-          </h1>
-          <p className="text-center text-white text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi,
-            minus aliquid? Quas, dolorum? Iste corrupti consequatur in sequi
-            iusto necessitatibus!
-          </p>
+        <div className="absolute z-30 ">
+          <div className="flex flex-col justify-center items-center px-5 w-[70%] gap-7 mx-auto">
+            <h1 className="text-white text-4xl font-black text-center uppercase md:text-8xl">
+              Complejo Nuche
+            </h1>
+            <p className="text-center text-white text-sm md:text-lg">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi,
+              minus aliquid? Quas, dolorum? Iste corrupti consequatur in sequi
+              iusto necessitatibus!
+            </p>
 
-          <div className="flex gap-5 justify-center items-center">
-            <a
-              href="#"
-              className="text-black text-sm border bg-white rounded-full py-3 px-5"
-            >
-              Ver departamentos
-            </a>
-            <a
-              href="#"
-              className="text-white border border-white rounded-full text-sm py-3 px-5"
-            >
-              Contacto
-            </a>
+            <div className="flex gap-5 justify-center items-center">
+              <Link
+                href="#departamentos"
+                className="text-black text-sm border bg-white rounded-full py-3 px-5"
+                scroll={true}
+              >
+                Ver departamentos
+              </Link>
+              <Link
+                href="#contacto"
+                className="text-white border border-white rounded-full text-sm py-3 px-5"
+                scroll={true}
+              >
+                Contacto
+              </Link>
+            </div>
+            <Link href="#galeria" scroll={true}>
+              <LucideChevronDown className="mt-10" color="white" size={36} />
+            </Link>
           </div>
         </div>
 
@@ -85,9 +93,9 @@ export default function Home() {
       </section>
 
       {/** Galeria */}
-      <section className="px-5 py-10">
-        <h3 className="text-2xl font-black">Galeria</h3>
-        <p className="text-sm opacity-70 mt-5">
+      <section id="galeria" className="px-5 py-10 container mx-auto">
+        <h3 className="text-2xl font-black md:text-4xl">Galeria</h3>
+        <p className="text-sm opacity-70 mt-5 md:text-lg">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
           ratione.
         </p>
@@ -96,15 +104,18 @@ export default function Home() {
       </section>
 
       {/** Departamentos */}
-      <section className="px-5 pb-10">
-        <h3 className="text-2xl font-black">Departamentos</h3>
-        <p className="text-sm opacity-70 mt-5">
+      <section
+        id="departamentos"
+        className="px-5 pb-10 scroll-mt-10 container mx-auto"
+      >
+        <h3 className="text-2xl font-black md:text-4xl">Departamentos</h3>
+        <p className="text-sm opacity-70 mt-5 md:text-lg">
           Consectetur adipisicing elit. Quam nesciunt quisquam doloremque
           distinctio aliquam nihil vero doloribus modi hic, ad tempora vitae eum
           officia tempore accusamus maiores iste consequatur suscipit.
         </p>
 
-        <div className="gap-4 grid md:grid-cols-2">
+        <div className="gap-4 grid md:grid-cols-2 ">
           <DeptoView
             imagen={tipo1}
             plano={tipo1plano}
@@ -156,14 +167,16 @@ export default function Home() {
       </section>
 
       {/** Caracteristicas Generales */}
-      <section className="px-5 py-10">
-        <h3 className="text-2xl font-black">Caracteristicas Generales</h3>
-        <p className="text-sm opacity-70 mt-5">
+      <section className="px-5 py-10 container mx-auto">
+        <h3 className="text-2xl font-black md:text-4xl">
+          Caracteristicas Generales
+        </h3>
+        <p className="text-sm opacity-70 mt-5 md:text-lg">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
           ratione.
         </p>
 
-        <ul className="mt-5 flex flex-col gap-2 list-disc list-inside">
+        <ul className="mt-5 flex flex-col gap-2 list-disc list-inside md:grid md:grid-cols-2 lg:grid-cols-3">
           <li className="p-2 bg-neutral-100 rounded-md border border-opacity-50">
             Arquitectura moderna
           </li>
@@ -189,59 +202,63 @@ export default function Home() {
       </section>
 
       {/** Contacto */}
-      <section className="px-5 p-10 bg-black">
-        <h3 className="text-2xl font-black text-white">Contacto</h3>
-        <p className="text-sm opacity-70 mt-5 text-white">
-          Consectetur adipisicing elit. Quam nesciunt quisquam doloremque
-          distinctio aliquam nihil vero doloribus modi hic, ad tempora vitae eum
-          officia tempore accusamus maiores iste consequatur suscipit.
-        </p>
+      <section id="contacto" className="px-5 p-10 bg-black ">
+        <div className="container mx-auto">
+          <h3 className="text-2xl font-black text-white md:text-4xl">
+            Contacto
+          </h3>
+          <p className="text-sm opacity-70 mt-5 text-white md:text-lg">
+            Consectetur adipisicing elit. Quam nesciunt quisquam doloremque
+            distinctio aliquam nihil vero doloribus modi hic, ad tempora vitae
+            eum officia tempore accusamus maiores iste consequatur suscipit.
+          </p>
 
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-col gap-5 mt-10"
-          >
-            <FormField
-              control={form.control}
-              name="username"
-              render={({ field }) => (
-                <>
-                  <FormItem>
-                    <FormLabel className="text-white">
-                      Nombre Completo
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Nombre y apellido"
-                        className="text-white"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription>
-                      Ingresa tu nombre y apellido
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="flex flex-col gap-5 mt-10"
+            >
+              <FormField
+                control={form.control}
+                name="username"
+                render={({ field }) => (
+                  <>
+                    <FormItem>
+                      <FormLabel className="text-white">
+                        Nombre Completo
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Nombre y apellido"
+                          className="text-white"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormDescription>
+                        Ingresa tu nombre y apellido
+                      </FormDescription>
+                      <FormMessage />
+                    </FormItem>
 
-                  <FormItem>
-                    <FormLabel className="text-white">Mensaje</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Nombre y apellido"
-                        className="text-white"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription>Ingresa tu mensaje</FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                </>
-              )}
-            />
-            <Button type="submit">Enviar</Button>
-          </form>
-        </Form>
+                    <FormItem>
+                      <FormLabel className="text-white">Mensaje</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Ingresa tu mensaje"
+                          className="text-white"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormDescription>Ingresa tu mensaje</FormDescription>
+                      <FormMessage />
+                    </FormItem>
+                  </>
+                )}
+              />
+              <Button type="submit">Enviar</Button>
+            </form>
+          </Form>
+        </div>
       </section>
     </main>
   );
