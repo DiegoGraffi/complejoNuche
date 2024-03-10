@@ -233,9 +233,7 @@ export default function Home() {
                         {...field}
                       />
                     </FormControl>
-                    <FormDescription>
-                      Ingresa tu nombre y apellido
-                    </FormDescription>
+                    <FormDescription>Ingresa tu mensaje</FormDescription>
                     <FormMessage />
                   </FormItem>
                 </>
