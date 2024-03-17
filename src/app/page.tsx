@@ -27,7 +27,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { LucideChevronDown } from "lucide-react";
+import { LucideChevronDown, Menu, Building } from "lucide-react";
+import { Parallax } from "react-scroll-parallax";
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
@@ -35,6 +36,7 @@ const formSchema = z.object({
 
 import MyGallery from "@/components/MyGallery";
 import DeptoView from "@/components/DeptoView";
+import { HeaderMegaMenu } from "@/components/Navbar/Navbar";
 
 export default function Home() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -52,9 +54,13 @@ export default function Home() {
 
   return (
     <main className="min-h-screen w-[100%]">
-      <section className="relative flex justify-center items-center h-screen">
+      <HeaderMegaMenu />
+      <section className="relative flex justify-center items-center h-screen overflow-x-hidden">
         <div className="absolute z-30 ">
-          <div className="flex flex-col justify-center items-center px-5 w-[70%] gap-7 mx-auto">
+          <Parallax
+            speed={20}
+            className="flex flex-col justify-center items-center px-5 w-[70%] gap-7 mx-auto"
+          >
             <h1 className="text-white text-4xl font-black text-center uppercase md:text-8xl">
               Complejo Nuche
             </h1>
@@ -64,17 +70,17 @@ export default function Home() {
               iusto necessitatibus!
             </p>
 
-            <div className="flex gap-5 justify-center items-center">
+            <div className="flex flex-col w-[100%] md:flex-row gap-5 justify-center items-stretch">
               <Link
                 href="#departamentos"
-                className="text-black text-sm border bg-white rounded-full py-3 px-5"
+                className="text-black text-center text-sm border bg-white rounded-full py-3 px-5"
                 scroll={true}
               >
                 Ver departamentos
               </Link>
               <Link
                 href="#contacto"
-                className="text-white border border-white rounded-full text-sm py-3 px-5"
+                className="text-white text-center border border-white rounded-full text-sm py-3 px-5"
                 scroll={true}
               >
                 Contacto
@@ -83,10 +89,10 @@ export default function Home() {
             <Link href="#galeria" scroll={true}>
               <LucideChevronDown className="mt-10" color="white" size={36} />
             </Link>
-          </div>
+          </Parallax>
         </div>
 
-        <div className="w-full h-screen absolute">
+        <div className="w-full h-screen absolute overflow-hidden">
           <div className="bg-black opacity-75 w-full h-full absolute z-20"></div>
           <Image src={img01} alt="imagen" fill className="object-cover" />
         </div>
@@ -99,7 +105,6 @@ export default function Home() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
           ratione.
         </p>
-
         <MyGallery />
       </section>
 
