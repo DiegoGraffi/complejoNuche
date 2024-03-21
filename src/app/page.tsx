@@ -32,17 +32,16 @@ import { LucideChevronDown, Menu, Building } from "lucide-react";
 import { Card, Text, Group, Button, rem } from "@mantine/core";
 import { Parallax } from "react-scroll-parallax";
 import banner from "../../public/02.jpg";
-
-const formSchema = z.object({
-  username: z.string().min(2).max(50),
-});
-
 import DeptoView from "@/components/DeptoView";
 import { HeaderMegaMenu } from "@/components/Navbar/Navbar";
 import MyGallery from "@/components/MyGallery";
 import { CarouselCustomNavigation } from "@/components/Carousel";
 import Plantas from "@/components/Plantas";
 import DeptoCard from "@/components/DeptoCard";
+
+const formSchema = z.object({
+  username: z.string().min(2).max(50),
+});
 
 export default function Home() {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -67,6 +66,11 @@ export default function Home() {
     "Materiales de terminación de primera calidad",
     "Baño completo",
   ];
+
+  const [state, handleSubmit, reset] = useForm("mrgnarqy");
+  if (state.succeeded) {
+    return <div>Thank you for signing up!</div>;
+  }
 
   return (
     <main className="min-h-screen w-[100%]">
@@ -238,53 +242,6 @@ export default function Home() {
             c5={"Vistas al frente con balcon"}
             c6={"2 unidades en Planta alta"}
           />
-          {/* <DeptoView
-            imagen={tipo1}
-            plano={tipo1plano}
-            titulo="Departamento Tipo 1"
-            caracteristica1="51 m2"
-            caracteristica2="1 habitacion"
-            caracteristica3="Espacio social integrado"
-            caracteristica4="Baño con ventilacion natural"
-            caracteristica5="Vistas al frente y al interior del complejo"
-            caracteristica6="4 unidades en Planta baja"
-          />
-
-          <DeptoView
-            imagen={tipo2}
-            plano={tipo2plano}
-            titulo="Departamento Tipo 2"
-            caracteristica1="54 m2"
-            caracteristica2="1 habitacion"
-            caracteristica3="Espacio social integrado"
-            caracteristica4="Baño con ventilacion natural"
-            caracteristica5="Vistas al frente con balcon"
-            caracteristica6="2 unidades en Planta alta"
-          />
-
-          <DeptoView
-            imagen={tipo3}
-            plano={tipo3plano}
-            titulo="Departamento Tipo 3"
-            caracteristica1="54 m2"
-            caracteristica2="1 habitacion"
-            caracteristica3="Espacio social integrado"
-            caracteristica4="Baño con ventilacion natural"
-            caracteristica5="Vistas al interior del complejo"
-            caracteristica6="2 unidades en Planta baja"
-          />
-
-          <DeptoView
-            imagen={tipo4}
-            plano={tipo4plano}
-            titulo="Departamento Tipo 4"
-            caracteristica1="50 m2"
-            caracteristica2="1 habitacion"
-            caracteristica3="Espacio social integrado"
-            caracteristica4="Baño con ventilacion natural"
-            caracteristica5="Vistas al frente con balcon"
-            caracteristica6="2 unidades en Planta alta"
-          /> */}
         </div>
       </section>
 
@@ -343,41 +300,56 @@ export default function Home() {
           </p>
         </div>
 
-        <form className="container mx-auto mt-[25px] md:mt-[50px] flex flex-col gap-5 lg:w-[80%]">
+        <form
+          onSubmit={handleSubmit}
+          className="container mx-auto mt-[25px] md:mt-[50px] flex flex-col gap-5 lg:w-[80%]"
+        >
           <div className="flex flex-col gap-4">
-            <label className="text-[16px] md:text-[20px] font-normal">
+            <label
+              htmlFor="username"
+              className="text-[16px] md:text-[20px] font-normal"
+            >
               Nombre y apellido
             </label>
             <input
               type="text"
+              name="username"
               className="border border-neutral-200 p-4 rounded-md"
               placeholder="Ingrese su nombre completo"
             />
           </div>
 
           <div className="flex flex-col gap-4">
-            <label className="text-[16px] md:text-[20px] font-normal">
+            <label
+              htmlFor="email"
+              className="text-[16px] md:text-[20px] font-normal"
+            >
               Email
             </label>
             <input
               type="email"
+              name="email"
               className="border border-neutral-200 p-4 rounded-md"
               placeholder="Ingrese su email"
             />
           </div>
 
           <div className="flex flex-col gap-4">
-            <label className="text-[16px] md:text-[20px] font-normal">
+            <label
+              htmlFor="message"
+              className="text-[16px] md:text-[20px] font-normal"
+            >
               Mensaje
             </label>
             <textarea
+              name="message"
               rows={5}
               className="border border-neutral-200 p-4 rounded-md"
               placeholder="Escriba su mensaje"
             />
           </div>
 
-          <button className="w-full bg-black p-4 rounded-md">
+          <button type="submit" className="w-full bg-black p-4 rounded-md">
             <p className="text-white">Enviar</p>
           </button>
         </form>

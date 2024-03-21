@@ -1,7 +1,12 @@
 "use client";
 
 import { ParallaxProvider } from "react-scroll-parallax";
+import { FormspreeProvider } from "@formspree/react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-  return <ParallaxProvider>{children}</ParallaxProvider>;
+  return (
+    <FormspreeProvider>
+      <ParallaxProvider>{children}</ParallaxProvider>
+    </FormspreeProvider>
+  );
 }
