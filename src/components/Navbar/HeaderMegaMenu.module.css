@@ -17,7 +17,7 @@
   text-decoration: none;
   color: white;
   font-weight: 500;
-  font-size: var(--mantine-font-size-sm);
+  font-size: var(--mantine-font-size-md);
   transition: all ease-in-out 150ms;
   cursor: pointer;
 

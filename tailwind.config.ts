@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 import { Raleway } from "next/font/google";
-
-const config = {
+const withMT = require("@material-tailwind/react/utils/withMT");
+module.exports = withMT({
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -39,6 +39,4 @@ const config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
-
-export default config;
+});

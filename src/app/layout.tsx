@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Raleway } from "@next/font/google";
+import { Raleway } from "next/font/google";
 import { Providers } from "./provider";
 import "./globals.css";
 import "@mantine/core/styles.css";
